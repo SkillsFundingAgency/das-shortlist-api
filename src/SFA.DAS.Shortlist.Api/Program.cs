@@ -1,8 +1,9 @@
 using NLog.Web;
+using SFA.DAS.Configuration.AzureTableStorage;
 
 namespace SFA.DAS.Shortlist.Api
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
@@ -10,19 +11,32 @@ namespace SFA.DAS.Shortlist.Api
 
             var builder = WebApplication.CreateBuilder(args);
 
+
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Host.UseNLog();
             builder.Services.AddHealthChecks();
 
+            builder.Host.ConfigureAppConfiguration((hostingContext, configurationBuilder) =>
+            {
+                configurationBuilder.AddAzureTableStorage(options =>
+                {
+                    var configuration = builder.Configuration;
+                    options.ConfigurationKeys = configuration["ConfigNames"].Split(",");
+                    options.StorageConnectionString = configuration["ConfigurationStorageConnectionString"];
+                    options.EnvironmentName = configuration["Environment"];
+                    options.PreFixConfigurationKeys = false;
+                });
+            });
+
             var app = builder.Build();
 
 
             // Configure the HTTP request pipeline.
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
