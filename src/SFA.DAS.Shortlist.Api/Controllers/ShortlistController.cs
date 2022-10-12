@@ -22,8 +22,11 @@ namespace SFA.DAS.Shortlist.Api.Controllers
         {
             if(!ModelState.IsValid)
             {
+                _logger.LogInformation("Invalid request to create shortlist item received");
                 return BadRequest(ModelState);
             }
+
+            _logger.LogInformation("Creating shortlist item for userId: {userId}", shortlist.ShortlistUserId);
             await _shortlistService.AddItem(shortlist);
             return CreatedAtAction("GetAllForUser", new { userId = shortlist.ShortlistUserId }, null);
         }

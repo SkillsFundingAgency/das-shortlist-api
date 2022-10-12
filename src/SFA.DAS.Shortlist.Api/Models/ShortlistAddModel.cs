@@ -16,10 +16,10 @@ namespace SFA.DAS.Shortlist.Api.Models
             {
                 Id = Guid.NewGuid(),
                 ShortlistUserId = model.ShortlistUserId,
-                Latitude = model.Latitude,
-                Longitude = model.Longitude,
                 Ukprn = model.Ukprn,
                 Larscode = model.Larscode,
+                Latitude = model.Latitude,
+                Longitude = model.Longitude,
                 LocationDescription = model.LocationDescription
             };
     }
