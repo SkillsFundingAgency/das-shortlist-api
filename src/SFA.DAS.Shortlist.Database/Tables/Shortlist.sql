@@ -3,7 +3,7 @@
     [Id] UNIQUEIDENTIFIER NOT NULL,
     [ShortlistUserId] UNIQUEIDENTIFIER NOT NULL,
     [UkPrn] INT NOT NULL,
-    [StandardId] INT NOT NULL,
+    [Larscode] INT NOT NULL,
     [LocationDescription] VARCHAR(1000) NULL,
     [Latitude] FLOAT NULL,
     [Longitude] FLOAT NULL,
