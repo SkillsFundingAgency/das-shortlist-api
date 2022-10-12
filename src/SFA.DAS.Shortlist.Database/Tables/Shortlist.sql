@@ -5,9 +5,9 @@
     [UkPrn] INT NOT NULL,
     [StandardId] INT NOT NULL,
     [LocationDescription] VARCHAR(1000) NULL,
-    [Lat] FLOAT NULL,
-    [Long] FLOAT NULL,
-    [CreatedDate] DATETIME NOT NULL DEFAULT GETDATE(),
+    [Latitude] FLOAT NULL,
+    [Longitude] FLOAT NULL,
+    [CreatedDate] DATETIME2 NOT NULL DEFAULT GETDATE(),
     CONSTRAINT PK_Shortlist PRIMARY KEY ([Id]) 
 )
 GO
