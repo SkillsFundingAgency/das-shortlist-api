@@ -17,6 +17,7 @@ namespace SFA.DAS.Shortlist.Application.Data
         }
     }
 
+    [ExcludeFromCodeCoverage]
     public class ShortlistConfiguration : IEntityTypeConfiguration<Domain.Entities.Shortlist>
     {
         public void Configure(EntityTypeBuilder<Domain.Entities.Shortlist> builder)
