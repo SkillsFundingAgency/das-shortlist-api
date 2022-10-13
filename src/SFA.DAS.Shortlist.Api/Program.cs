@@ -77,7 +77,7 @@ namespace SFA.DAS.Shortlist.Api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CoursesAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ShorlistAPI", Version = "v1" });
                 c.OperationFilter<SwaggerVersionHeaderFilter>();
             });
 
