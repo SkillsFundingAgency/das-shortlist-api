@@ -15,9 +15,11 @@ using SFA.DAS.Shortlist.Api.Models;
 using SFA.DAS.Shortlist.Application.Data;
 using SFA.DAS.Shortlist.Application.Data.Repositories;
 using SFA.DAS.Shortlist.Application.Services;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SFA.DAS.Shortlist.Api
 {
+    [ExcludeFromCodeCoverage]
     public static class Program
     {
         public static void Main(string[] args)

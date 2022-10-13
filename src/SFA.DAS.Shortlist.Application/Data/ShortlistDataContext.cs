@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Reflection.Emit;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SFA.DAS.Shortlist.Application.Data
 {
+    [ExcludeFromCodeCoverage]
     public class ShortlistDataContext : DbContext
     {
         public DbSet<Domain.Entities.Shortlist> Shortlists { get; set; }

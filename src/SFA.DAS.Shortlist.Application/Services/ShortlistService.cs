@@ -1,7 +1,9 @@
 ﻿using SFA.DAS.Shortlist.Application.Data.Repositories;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SFA.DAS.Shortlist.Application.Services
 {
+    [ExcludeFromCodeCoverage]
     public class ShortlistService : IShortlistService
     {
         private readonly IShortlistRepository _shortlistRepository;
