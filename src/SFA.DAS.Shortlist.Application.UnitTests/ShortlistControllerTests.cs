@@ -64,7 +64,7 @@ namespace SFA.DAS.Shortlist.Api.UnitTests
             var result = await sut.DeleteShortlistForUser(userId);
 
             result.As<NoContentResult>().Should().NotBeNull();
-            serviceMock.Verify(x => x.DeleteShortlist(userId));
+            serviceMock.Verify(x => x.DeleteAllShortlistForUser(userId));
         }
     }
 }

@@ -47,7 +47,7 @@ namespace SFA.DAS.Shortlist.Api.Controllers
         {
             _logger.LogInformation("Request received to delete shortlist items for user {userId}", userId);
 
-            await _shortlistService.DeleteShortlist(userId);
+            await _shortlistService.DeleteAllShortlistForUser(userId);
 
             return NoContent();
         }
