@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFA.DAS.Shortlist.Api", "SF
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SFA.DAS.Shortlist.Database", "SFA.DAS.Shortlist.Database\SFA.DAS.Shortlist.Database.sqlproj", "{4F78C826-9BBC-40BC-B7F1-941D1384D45C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.Shortlist.Application", "SFA.DAS.Shortlist\SFA.DAS.Shortlist.Application.csproj", "{FD6D7662-46CE-49D2-A390-49930592B50E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AEFB3069-A96B-4555-B76B-B236F716688C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFA.DAS.Shortlist.Api.UnitTests", "SFA.DAS.Shortlist.Application.UnitTests\SFA.DAS.Shortlist.Api.UnitTests.csproj", "{05C4E52D-85D7-4CA1-96A1-1EBA6D4E64EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFA.DAS.Shortlist.Application", "SFA.DAS.Shortlist.Application\SFA.DAS.Shortlist.Application.csproj", "{0FEA6614-557B-476D-AE8A-4C4FA337A382}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,13 +29,20 @@ Global
 		{4F78C826-9BBC-40BC-B7F1-941D1384D45C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F78C826-9BBC-40BC-B7F1-941D1384D45C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4F78C826-9BBC-40BC-B7F1-941D1384D45C}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{FD6D7662-46CE-49D2-A390-49930592B50E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD6D7662-46CE-49D2-A390-49930592B50E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD6D7662-46CE-49D2-A390-49930592B50E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD6D7662-46CE-49D2-A390-49930592B50E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05C4E52D-85D7-4CA1-96A1-1EBA6D4E64EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05C4E52D-85D7-4CA1-96A1-1EBA6D4E64EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05C4E52D-85D7-4CA1-96A1-1EBA6D4E64EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05C4E52D-85D7-4CA1-96A1-1EBA6D4E64EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FEA6614-557B-476D-AE8A-4C4FA337A382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FEA6614-557B-476D-AE8A-4C4FA337A382}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FEA6614-557B-476D-AE8A-4C4FA337A382}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FEA6614-557B-476D-AE8A-4C4FA337A382}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{05C4E52D-85D7-4CA1-96A1-1EBA6D4E64EE} = {AEFB3069-A96B-4555-B76B-B236F716688C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {60F4EE05-F2B5-47B1-B89D-B52FCE035F6F}

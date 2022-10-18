@@ -5,10 +5,10 @@
         public Guid Id { get; set; }
         public Guid ShortlistUserId { get; set; }
         public int Ukprn { get; set; }
-        public int StandardId { get; set; }
+        public int Larscode { get; set; }
         public string LocationDescription { get; set; }
-        public float? Lat { get; set; }
-        public float? Long { get; set; }
+        public double? Latitude { get; set; }
+        public double? Longitude { get; set; }
         public DateTime CreatedDate { get; set; }
     }
 }
