@@ -52,5 +52,19 @@ namespace SFA.DAS.Shortlist.Api.UnitTests
             result.As<OkObjectResult>().Should().NotBeNull();
             serviceMock.Verify(x => x.GetAllUserShortlist(userId));
         }
+
+        [Test]
+        public async Task DeleteShortlistForUser_ReturnsNoContentResponse()
+        {
+            var loggerMock = new Mock<ILogger<ShortlistController>>();
+            var serviceMock = new Mock<IShortlistService>();
+            var sut = new ShortlistController(loggerMock.Object, serviceMock.Object);
+            var userId = Guid.NewGuid();
+
+            var result = await sut.DeleteShortlistForUser(userId);
+
+            result.As<NoContentResult>().Should().NotBeNull();
+            serviceMock.Verify(x => x.DeleteShortlist(userId));
+        }
     }
 }

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SFA.DAS.Shortlist.Api.Models;
 using SFA.DAS.Shortlist.Application.Services;
+using System.Net;
 
 namespace SFA.DAS.Shortlist.Api.Controllers
 {
@@ -38,6 +39,17 @@ namespace SFA.DAS.Shortlist.Api.Controllers
             _logger.LogInformation("Request received to get all shortlist items for user {userId}", userId);
             var shortlists = await _shortlistService.GetAllUserShortlist(userId);
             return Ok(shortlists);
+        }
+
+        [HttpDelete]
+        [Route("users/{userId}")]
+        public async Task<IActionResult> DeleteShortlistForUser(Guid userId)
+        {
+            _logger.LogInformation("Request received to delete shortlist items for user {userId}", userId);
+
+            await _shortlistService.DeleteShortlist(userId);
+
+            return NoContent();
         }
     }
 }
