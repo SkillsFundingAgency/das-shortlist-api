@@ -18,6 +18,11 @@ namespace SFA.DAS.Shortlist.Application.Services
             return _shortlistRepository.Insert(shortlist);
         }
 
+        public Task<int> GetShortlistCountForUser(Guid userId)
+        {
+            return _shortlistRepository.GetCount(userId);
+        }
+
         public Task<List<Domain.Entities.Shortlist>> GetAllUserShortlist(Guid userId)
         {
             return _shortlistRepository.GetAll(userId);
