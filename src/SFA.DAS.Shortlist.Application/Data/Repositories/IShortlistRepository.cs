@@ -5,5 +5,7 @@
         Task<List<Domain.Entities.Shortlist>> GetAll(Guid userId);
 
         Task Insert(Domain.Entities.Shortlist entity);
+
+        Task Delete(Guid id, Guid shortlistUserId);
     }
 }

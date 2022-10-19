@@ -23,5 +23,15 @@ namespace SFA.DAS.Shortlist.Application.Data.Repositories
             _context.Shortlists.Add(entity);
             await _context.SaveChangesAsync();
         }
+        public async Task Delete(Guid id, Guid shortlistUserId)
+        {
+            var shortlistItem =
+                _context.Shortlists.SingleOrDefault(c => c.Id.Equals(id) && c.ShortlistUserId.Equals(shortlistUserId));
+            if (shortlistItem != null)
+            {
+                _context.Shortlists.Remove(shortlistItem);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }
