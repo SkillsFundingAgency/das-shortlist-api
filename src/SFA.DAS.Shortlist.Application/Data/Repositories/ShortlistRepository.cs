@@ -18,6 +18,12 @@ namespace SFA.DAS.Shortlist.Application.Data.Repositories
             return await _context.Shortlists.Where(s => s.ShortlistUserId == userId).ToListAsync();
         }
 
+        public async Task<int> GetCount(Guid userId)
+        {
+            return await _context.Shortlists.Where(s => s.ShortlistUserId == userId).CountAsync();
+        }
+
+
         public async Task Insert(Domain.Entities.Shortlist entity)
         {
             _context.Shortlists.Add(entity);
