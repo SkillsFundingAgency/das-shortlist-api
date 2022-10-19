@@ -22,5 +22,9 @@ namespace SFA.DAS.Shortlist.Application.Services
         {
             return _shortlistRepository.GetAll(userId);
         }
+        public async Task DeleteAllShortlistForUser(Guid shortlistUserId)
+        {
+            await _shortlistRepository.DeleteShortlistByUserId(shortlistUserId);
+        }
     }
 }
