@@ -20,7 +20,8 @@ namespace SFA.DAS.Shortlist.Api.Models
                 Larscode = model.Larscode,
                 Latitude = model.Latitude,
                 Longitude = model.Longitude,
-                LocationDescription = model.LocationDescription
+                LocationDescription = model.LocationDescription,
+                CreatedDate = DateTime.Now
             };
     }
 

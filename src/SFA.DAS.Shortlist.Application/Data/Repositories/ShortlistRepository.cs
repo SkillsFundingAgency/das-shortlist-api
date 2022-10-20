@@ -18,10 +18,25 @@ namespace SFA.DAS.Shortlist.Application.Data.Repositories
             return await _context.Shortlists.Where(s => s.ShortlistUserId == userId).ToListAsync();
         }
 
+        public async Task<int> GetCount(Guid userId)
+        {
+            return await _context.Shortlists.Where(s => s.ShortlistUserId == userId).CountAsync();
+        }
+
+
         public async Task Insert(Domain.Entities.Shortlist entity)
         {
             _context.Shortlists.Add(entity);
             await _context.SaveChangesAsync();
+        }
+        public async Task DeleteShortlistByUserId(Guid shortlistUserId)
+        {
+            var shortListItemsToDelete =
+                await _context.Shortlists.Where(x => x.ShortlistUserId == shortlistUserId).ToListAsync();
+
+            _context.Shortlists.RemoveRange(shortListItemsToDelete);
+
+            _context.SaveChanges();
         }
         public async Task Delete(Guid id, Guid shortlistUserId)
         {
