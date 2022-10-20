@@ -9,5 +9,7 @@
         Task Insert(Domain.Entities.Shortlist entity);
 
         Task DeleteShortlistByUserId(Guid shortlistUserId);
+
+        Task<IEnumerable<Guid>> GetExpiredShortlistUserIds(int expiryInDays);
     }
 }
