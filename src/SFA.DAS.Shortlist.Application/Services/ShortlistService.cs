@@ -33,7 +33,7 @@ namespace SFA.DAS.Shortlist.Application.Services
             return _shortlistRepository.DeleteShortlistByUserId(shortlistUserId);
         }
 
-        public Task<IEnumerable<Guid>> GetExpiredShortlistUserIds(int expiryInDays)
+        public Task<List<Guid>> GetExpiredShortlistUserIds(int expiryInDays)
         {
             return _shortlistRepository.GetExpiredShortlistUserIds(expiryInDays);
         }

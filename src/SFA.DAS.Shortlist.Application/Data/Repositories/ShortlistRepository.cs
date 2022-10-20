@@ -40,7 +40,7 @@ namespace SFA.DAS.Shortlist.Application.Data.Repositories
             _context.SaveChanges();
         }
 
-        public async Task<IEnumerable<Guid>> GetExpiredShortlistUserIds(int expiryInDays)
+        public async Task<List<Guid>> GetExpiredShortlistUserIds(int expiryInDays)
         {
             return await _context
                 .Shortlists
