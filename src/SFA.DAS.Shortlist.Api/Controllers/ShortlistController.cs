@@ -6,7 +6,7 @@ using System.Net;
 namespace SFA.DAS.Shortlist.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ShortlistController : ControllerBase
     {
         private readonly ILogger<ShortlistController> _logger;
