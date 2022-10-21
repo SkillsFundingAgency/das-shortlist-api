@@ -90,13 +90,14 @@ namespace SFA.DAS.Shortlist.Api.UnitTests
             var loggerMock = new Mock<ILogger<ShortlistController>>();
             var serviceMock = new Mock<IShortlistService>();
             var expiryInDays = 10;
-            serviceMock.Setup(s => s.GetExpiredShortlistUserIds(expiryInDays)).ReturnsAsync(new List<Guid>(){ Guid.NewGuid() });
+            var expectedResponse = new List<Guid>() { Guid.NewGuid() };
+            serviceMock.Setup(s => s.GetExpiredShortlistUserIds(expiryInDays)).ReturnsAsync(expectedResponse);
             var sut = new ShortlistController(loggerMock.Object, serviceMock.Object);
 
             var result = await sut.GetExpiredShortlistUserIds(expiryInDays);
 
-            result.Result.As<OkObjectResult>().Should().NotBeNull();
-            result.Result.As<OkObjectResult>().Value.As<List<Guid>>().Should().NotBeEmpty();
+            result.As<OkObjectResult>().Should().NotBeNull();
+            result.As<OkObjectResult>().Value.Should().BeEquivalentTo(new { userIds = expectedResponse });
             serviceMock.Verify(s => s.GetExpiredShortlistUserIds(expiryInDays));
         }
     }
