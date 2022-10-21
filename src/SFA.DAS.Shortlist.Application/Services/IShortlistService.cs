@@ -6,5 +6,6 @@
         Task<int> GetShortlistCountForUser(Guid userId);
         Task AddItem(Domain.Entities.Shortlist shortlist);
         Task DeleteAllShortlistForUser(Guid shortlistUserId);
+        Task<List<Guid>> GetExpiredShortlistUserIds(int expiryInDays);
     }
 }
