@@ -10,6 +10,8 @@
 
         Task DeleteShortlistByUserId(Guid shortlistUserId);
 
+        Task<List<Guid>> GetExpiredShortlistUserIds(int expiryInDays);
+
         Task Delete(Guid id, Guid shortlistUserId);
     }
 }

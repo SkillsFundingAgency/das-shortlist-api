@@ -63,6 +63,15 @@ namespace SFA.DAS.Shortlist.Api.Controllers
             return Ok(count);
         }
 
+        [HttpGet]
+        [Route("users/expired")]
+        public async Task<IActionResult> GetExpiredShortlistUserIds([FromQuery] int expiryInDays)
+        {
+            _logger.LogInformation("Request received to get expired user ids");
+            var userIds = await _shortlistService.GetExpiredShortlistUserIds(expiryInDays);
+            return Ok(new { userIds = userIds });
+        }
+
         [HttpDelete]
         [Route("users/{userId}/items/{id}")]
         public async Task<IActionResult> DeleteShortlistItemForUser(Guid userId, Guid id)
