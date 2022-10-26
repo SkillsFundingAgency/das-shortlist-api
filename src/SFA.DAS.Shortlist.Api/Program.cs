@@ -126,6 +126,16 @@ namespace SFA.DAS.Shortlist.Api
                 ResponseWriter = HealthCheckResponseWriter.WriteJsonResponse
             });
 
+            app.UseHealthChecks("/ping", new HealthCheckOptions
+            {
+                Predicate = (_) => false,
+                ResponseWriter = (context, report) =>
+                {
+                    context.Response.ContentType = "application/json";
+                    return context.Response.WriteAsync($"Processed ping request at {DateTime.Now}");
+                }
+            });
+
             app.MapControllers();
 
             app.Run();
