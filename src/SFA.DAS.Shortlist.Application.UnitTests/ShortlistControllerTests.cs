@@ -100,5 +100,19 @@ namespace SFA.DAS.Shortlist.Api.UnitTests
             result.As<OkObjectResult>().Value.Should().BeEquivalentTo(new { userIds = expectedResponse });
             serviceMock.Verify(s => s.GetExpiredShortlistUserIds(expiryInDays));
         }
+        [Test]
+        public async Task DeleteShortlistItemForUser_ReturnsNoContentResponse()
+        {
+            var loggerMock = new Mock<ILogger<ShortlistController>>();
+            var serviceMock = new Mock<IShortlistService>();
+            var sut = new ShortlistController(loggerMock.Object, serviceMock.Object);
+            var userId = Guid.NewGuid();
+            var id = Guid.NewGuid();
+
+            var result = await sut.DeleteShortlistItemForUser(userId, id);
+
+            result.As<NoContentResult>().Should().NotBeNull();
+            serviceMock.Verify(x => x.DeleteShortlistUserItem(id, userId));
+        }
     }
 }

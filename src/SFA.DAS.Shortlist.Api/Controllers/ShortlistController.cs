@@ -71,5 +71,14 @@ namespace SFA.DAS.Shortlist.Api.Controllers
             var userIds = await _shortlistService.GetExpiredShortlistUserIds(expiryInDays);
             return Ok(new { userIds = userIds });
         }
+
+        [HttpDelete]
+        [Route("users/{userId}/items/{id}")]
+        public async Task<IActionResult> DeleteShortlistItemForUser(Guid userId, Guid id)
+        {
+            _logger.LogInformation("Request received to delete all shortlist items for user {userId} and {id}", userId, id);
+            await _shortlistService.DeleteShortlistUserItem(id, userId);
+            return NoContent();
+        }
     }
 }
