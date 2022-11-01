@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using SFA.DAS.Shortlist.Api.Models;
 using SFA.DAS.Shortlist.Application.Services;
-using System.Net;
 
 namespace SFA.DAS.Shortlist.Api.Controllers
 {
@@ -55,7 +54,7 @@ namespace SFA.DAS.Shortlist.Api.Controllers
         }
         
         [HttpGet]
-        [Route("{userId}/count")]
+        [Route("users/{userId}/count")]
         public async Task<ActionResult<int>> GetShortlistCountForUser(Guid userId)
         {
             _logger.LogInformation("Request received to get count of shortlist items for user {userid}", userId);
