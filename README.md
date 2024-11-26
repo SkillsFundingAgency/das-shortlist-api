@@ -12,6 +12,8 @@ _Update these badges with the correct information for this project. These give t
 
 ## 🚀 Installation
 
+The repo has a database project which should be published locally to a database named 'SFA.DAS.Shortlist.Database'
+
 ### Pre-Requisites
 * A clone of this repository
 * A storage emulator like Azurite
