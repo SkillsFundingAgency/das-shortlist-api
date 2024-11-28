@@ -6,7 +6,6 @@ using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using NLog.Web;
 using SFA.DAS.Api.Common.AppStart;
 using SFA.DAS.Api.Common.Configuration;
 using SFA.DAS.Api.Common.Infrastructure;
@@ -24,8 +23,6 @@ namespace SFA.DAS.Shortlist.Api
     {
         public static void Main(string[] args)
         {
-            NLogBuilder.ConfigureNLog("nlog.config");
-
             var builder = WebApplication.CreateBuilder(args);
 
             var environmentName = builder.Configuration["Environment"];
@@ -66,14 +63,13 @@ namespace SFA.DAS.Shortlist.Api
                 builder.Services.AddAuthentication(azureAdConfiguration, policies);
             }
 
-            builder.Host.UseNLog();
-            builder.Services.AddApiVersioning(opt => 
+            builder.Services.AddApiVersioning(opt =>
             {
                 opt.ApiVersionReader = new HeaderApiVersionReader("X-Version");
                 opt.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
             });
             builder.Services.AddControllers();
-            
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
             {
@@ -81,7 +77,7 @@ namespace SFA.DAS.Shortlist.Api
                 c.OperationFilter<SwaggerVersionHeaderFilter>();
             });
 
-            builder.Services.AddDbContext<ShortlistDataContext>((serviceProvider, options) => 
+            builder.Services.AddDbContext<ShortlistDataContext>((serviceProvider, options) =>
             {
                 var connectionString = builder.Configuration["SqlDatabaseConnectionString"];
                 var connection = new SqlConnection(connectionString);
