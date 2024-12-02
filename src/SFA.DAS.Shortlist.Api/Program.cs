@@ -10,6 +10,7 @@ using SFA.DAS.Api.Common.AppStart;
 using SFA.DAS.Api.Common.Configuration;
 using SFA.DAS.Api.Common.Infrastructure;
 using SFA.DAS.Configuration.AzureTableStorage;
+using SFA.DAS.Shortlist.Api.AppStart;
 using SFA.DAS.Shortlist.Api.Models;
 using SFA.DAS.Shortlist.Application.Data;
 using SFA.DAS.Shortlist.Application.Data.Repositories;
@@ -48,9 +49,8 @@ namespace SFA.DAS.Shortlist.Api
             builder.Services.AddFluentValidationAutoValidation();
 
             builder.Services.AddLogging()
-                .AddOpenTelemetry();
-
-            builder.Services.AddApplicationInsightsTelemetry();
+                .AddTelemetryRegistration(builder.Configuration)
+                .AddApplicationInsightsTelemetry();
 
             if (environmentName != "LOCAL")
             {
