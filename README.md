@@ -26,7 +26,7 @@ In the SFA.DAS.Shortlist.Api project, if it does not exist already, add appSetti
   "ConfigNames": "SFA.DAS.Shortlist.Api",
   "Environment": "LOCAL",
   "Version": "1.0",
-  "APPINSIGHTS_INSTRUMENTATIONKEY": "APPLICATIONINSIGHTS_CONNECTION_STRING"
+  "APPLICATIONINSIGHTS_CONNECTION_STRING": ""
 }
 ```
 
