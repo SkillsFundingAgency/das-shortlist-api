@@ -47,6 +47,9 @@ namespace SFA.DAS.Shortlist.Api
             builder.Services.AddValidatorsFromAssembly(typeof(ShortlistAddModelValidator).Assembly);
             builder.Services.AddFluentValidationAutoValidation();
 
+            builder.Services.AddLogging()
+                .AddOpenTelemetry();
+
             builder.Services.AddApplicationInsightsTelemetry();
 
             if (environmentName != "LOCAL")
