@@ -12,6 +12,24 @@ _Update these badges with the correct information for this project. These give t
 
 ## 🚀 Installation
 
+In the SFA.DAS.Shortlist.Api project, if it does not exist already, add appSettings.Development.json file with following content:
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConfigurationStorageConnectionString": "UseDevelopmentStorage=true;",
+  "ConfigNames": "SFA.DAS.Shortlist.Api",
+  "Environment": "LOCAL",
+  "Version": "1.0",
+  "APPLICATIONINSIGHTS_CONNECTION_STRING": ""
+}
+```
+
 The repo has a database project which should be published locally to a database named 'SFA.DAS.Shortlist.Database'
 
 ### Pre-Requisites

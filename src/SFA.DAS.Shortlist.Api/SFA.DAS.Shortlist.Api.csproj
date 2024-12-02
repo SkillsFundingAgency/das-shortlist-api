@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Monitor.OpenTelemetry.AspNetCore" Version="1.2.0" />
     <PackageReference Include="FluentValidation" Version="11.11.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.22.0" />
@@ -14,10 +15,8 @@
     <PackageReference Include="Microsoft.Azure.Services.AppAuthentication" Version="1.6.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="8.0.11" />
-    <PackageReference Include="NLog.Web.AspNetCore" Version="5.3.15" />
     <PackageReference Include="SFA.DAS.Api.Common" Version="17.1.112" />
     <PackageReference Include="SFA.DAS.Configuration.AzureTableStorage" Version="17.1.113" />
-    <PackageReference Include="SFA.DAS.NLog.Targets.Redis" Version="1.2.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="7.1.0" />
   </ItemGroup>
 
